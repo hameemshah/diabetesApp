@@ -19,6 +19,7 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+//  test data for login
   const myUsername = "Hyder Fida";
   const myPassword = "hyder12345";
 
@@ -45,8 +46,8 @@ const Login = () => {
 
   return (
     <Container
-      className="d-flex justify-content-center align-items-center"
-      style={{ minHeight: "100vh" }}
+      className="d-flex justify-content-center align-items-center "
+      style={{ minHeight: "90vh" }}
     >
       <div
         className="p-4 shadow-lg rounded"

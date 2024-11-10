@@ -7,8 +7,7 @@ const HomePage = () => {
     const navigate = useNavigate()
     return (
         <Container>
-            {/* Hero Section */}
-            <Row className="text-center my-5">
+            <Row className="text-center my-3">
                 <Col>
                     <h1>Predict Your Risk of Diabetes Early</h1>
                     <p className="lead">
@@ -22,7 +21,7 @@ const HomePage = () => {
                 </Col>
             </Row>
 
-            <Row className="my-5 justify-content-between align-items-center">
+            <Row className="my-3 justify-content-between align-items-center">
             <Col md={6}>
                 <h2>About the App</h2>
                 <p>
