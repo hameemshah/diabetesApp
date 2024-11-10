@@ -18,4 +18,29 @@ body {
   font-family: cursive;
 }
 
+.about-container {
+  padding: 20px;
+  line-height: 1.6;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+h3 {
+  color: #666;
+  margin-top: 10px;
+}
+
+ul {
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+
 
