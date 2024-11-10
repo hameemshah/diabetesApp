@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
     const [username, setUsername] = useState('');
@@ -7,7 +8,10 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
+    const navigate = useNavigate();
+
     const handleRegister = (e) => {
+    
         e.preventDefault();
         if (password !== confirmPassword) {
             alert("Passwords do not match!");
@@ -26,7 +30,7 @@ const Register = () => {
                         <Form.Label>Username</Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder="Enter username"
+                            placeholder="Hyder Fida"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             required
@@ -37,7 +41,7 @@ const Register = () => {
                         <Form.Label>Email</Form.Label>
                         <Form.Control
                             type="email"
-                            placeholder="Enter email"
+                            placeholder="hyder@gmail.com"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
@@ -47,7 +51,7 @@ const Register = () => {
                     <Form.Group controlId="formPassword" className="mt-3">
                         <Form.Label>Password</Form.Label>
                         <Form.Control
-                            type="password"
+                            type="hyder12345"
                             placeholder="Enter password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
@@ -69,6 +73,20 @@ const Register = () => {
                     <Button variant="primary" type="submit" className="mt-3 w-100">
                         Register
                     </Button>
+                    <div className="d-flex text-center justify-content-center align-items-center">
+            Already a user?
+            <span
+              onClick={() => navigate("/login")}
+              style={{
+                color: "blue",
+                cursor: "pointer",
+                marginLeft: "5px",
+                textDecoration: "underline",
+              }}
+            >
+              Login
+            </span>
+          </div>
                 </Form>
             </div>
         </Container>

@@ -1,8 +1,10 @@
 import React from 'react';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import diabetesImage from '../assets/diabetes2.png';
+import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
+    const navigate = useNavigate()
     return (
         <Container>
             {/* Hero Section */}
@@ -12,7 +14,9 @@ const HomePage = () => {
                     <p className="lead">
                         Get an early prediction and take control of your health.
                     </p>
-                    <Button variant="primary" size="lg">
+                    <Button variant="primary" size="lg" onClick={() => {
+                        navigate('/login')
+                    }}>
                         Get Started
                     </Button>
                 </Col>
