@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const Test = () => {
+const TestForm = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: '',
     pregnancies: '',
@@ -15,7 +17,6 @@ const Test = () => {
     age: ''
   });
 
-  const [redirect, setRedirect] = useState(false);
 
   // Handle form input change
   const handleInputChange = (e) => {
@@ -39,29 +40,24 @@ const Test = () => {
     // Submit logic here (e.g., API call to predict diabetes)
 
     // Redirect to result page on successful form submission
-    setRedirect(true);
+     navigate('/result');
   };
 
-  // Redirect to the result page if form is submitted successfully
-  if (redirect) {
-    return <Navigate to="/result" />;
-  }
 
   return (
-    <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
+    <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: '90vh' }}>
       <div
         className="p-4 shadow-lg rounded"
         style={{
           width: '100%',
-          maxWidth: '800px', // Increased maxWidth for a bigger box
+          maxWidth: '800px', 
           backgroundColor: '#fff',
-          padding: '30px', // Increased padding for more space
+          padding: '30px', 
         }}
       >
         <h2 className="text-center mb-4">Diabetes Prediction Form</h2>
         <Form onSubmit={handleSubmit}>
           <Row>
-            {/* Row 1: Name, Number of Pregnancies, Glucose Level */}
             <Col xs={12} md={4}>
               <Form.Group controlId="formName">
                 <Form.Label>Name</Form.Label>
@@ -104,7 +100,6 @@ const Test = () => {
           </Row>
 
           <Row className="mt-3">
-            {/* Row 2: Blood Pressure, Skin Thickness, Insulin Level */}
             <Col xs={12} md={4}>
               <Form.Group controlId="formBloodPressure">
                 <Form.Label>Blood Pressure (mmHg)</Form.Label>
@@ -133,7 +128,7 @@ const Test = () => {
             </Col>
             <Col xs={12} md={4}>
               <Form.Group controlId="formInsulin">
-                <Form.Label>Insulin Level (UU/ml)</Form.Label>
+                <Form.Label>Insulin Level (mIU/L)</Form.Label>
                 <Form.Control
                   type="number"
                   placeholder="Enter insulin level"
@@ -147,7 +142,6 @@ const Test = () => {
           </Row>
 
           <Row className="mt-3">
-            {/* Row 3: BMI, Diabetes Pedigree Function, Age */}
             <Col xs={12} md={4}>
               <Form.Group controlId="formBMI">
                 <Form.Label>BMI</Form.Label>
@@ -198,4 +192,4 @@ const Test = () => {
   );
 };
 
-export default Test;
+export default TestForm;

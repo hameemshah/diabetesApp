@@ -5,21 +5,19 @@ import {
   Container,
   Toast,
   ToastContainer,
-  useAccordionButton,
 } from "react-bootstrap";
 import { Navigate, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [redirect, setRedirect] = useState(false);
   const [showToast, setShowToast] = useState(false); // State for toast visibility
   const [toastMessage, setToastMessage] = useState(""); // State for toast message
   const [toastVariant, setToastVariant] = useState(""); // State for toast type (success or error)
 
   const navigate = useNavigate();
 
-//  test data for login
+  //  test data for login
   const myUsername = "Hyder Fida";
   const myPassword = "hyder12345";
 
@@ -31,18 +29,13 @@ const Login = () => {
       setToastMessage("Login successful!");
       setToastVariant("success");
       setShowToast(true);
-      setRedirect(true);
+      navigate("/test");
     } else {
       setToastMessage("Invalid username or password");
       setToastVariant("danger");
       setShowToast(true);
     }
   };
-
-  // Redirect logic based on login success
-  if (redirect) {
-    return <Navigate to="/test" />;
-  }
 
   return (
     <Container

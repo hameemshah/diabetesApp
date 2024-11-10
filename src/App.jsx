@@ -7,7 +7,7 @@ import LoginPage from './pages/Login';
 import RegisterPage from './pages/Register'; 
 import AboutPage from './pages/About.jsx';
 import ContactPage from './pages/Contact.jsx';
-import TestPage from './pages/Test.jsx';
+import TestPage from './pages/TestForm.jsx';
 import ResultPage from './pages/Result.jsx';
 
 const App = () => {

@@ -4,7 +4,8 @@ import diabetesImage from '../assets/diabetes2.png';
 import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
     return (
         <Container>
             <Row className="text-center my-3">
@@ -34,12 +35,12 @@ const HomePage = () => {
                 <img 
                     src={diabetesImage}
                     alt="Diabetes Prediction"
-                    style={{ width: "300px", height: "300px", float:"right" }}
+                    style={{ width: "400px", height: "300px", float:"right" }}
                 />
             </Col>
         </Row>
 
-            {/* How It Works */}
+          
             <Row className="my-5 text-center">
                 <Col>
                     <h2>How It Works</h2>
@@ -117,7 +118,7 @@ const HomePage = () => {
                 <Col>
                     <p>&copy; 2024 Diabetes Prediction App. All rights reserved.</p>
                     <p>
-                        <a href="#about">About</a> | <a href="#contact">Contact</a> | <a href="#privacy">Privacy Policy</a>
+                        <a href="/about">About</a> | <a href="/contact">Contact</a> | <a href="#privacy">Privacy Policy</a>
                     </p>
                 </Col>
             </Row>

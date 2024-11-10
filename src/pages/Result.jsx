@@ -9,7 +9,7 @@ const Result = () => {
 
               {/* { here we can dynamically show wether a patient is diabetic or not } */}
             <div className="text-center mb-4">
-                <h4 className="text-danger">The patient is diabetic.</h4>
+                <h4 className="text-danger">The patient is diabetic. the probability of being diabetic is 60%.</h4>
             </div>
 
             {/* Table for Displaying Static Data values can be extarcted and shown dynamically */}
