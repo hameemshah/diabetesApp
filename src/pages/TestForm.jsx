@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const TestForm = () => {
   const navigate = useNavigate();
@@ -17,7 +18,6 @@ const TestForm = () => {
     age: ''
   });
 
-
   // Handle form input change
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -28,19 +28,28 @@ const TestForm = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if age is greater than zero
     if (formData.age <= 0) {
       alert("Age should be greater than zero.");
       return;
     }
 
-    // Submit logic here (e.g., API call to predict diabetes)
+    try {
+      // Send POST request to backend using axios
+      const response = await axios.post('http://your-backend-url.com/api/diabetes-prediction', formData);
 
-    // Redirect to result page on successful form submission
-     navigate('/result');
+      if (response.status === 200) {
+        // Navigate to the result page if the request is successful
+        navigate('/result');
+      } else {
+        alert('Error submitting form. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred. Please try again.');
+    }
   };
 
 
@@ -55,7 +64,7 @@ const TestForm = () => {
           padding: '30px', 
         }}
       >
-        <h2 className="text-center mb-4">Diabetes Prediction Form</h2>
+        <h2 className="text-center mb-4">Enter Your Health Profile</h2>
         <Form onSubmit={handleSubmit}>
           <Row>
             <Col xs={12} md={4}>
@@ -63,7 +72,6 @@ const TestForm = () => {
                 <Form.Label>Name</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Enter your name"
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
@@ -76,7 +84,6 @@ const TestForm = () => {
                 <Form.Label>Number of Pregnancies</Form.Label>
                 <Form.Control
                   type="number"
-                  placeholder="Enter number of pregnancies"
                   name="pregnancies"
                   value={formData.pregnancies}
                   onChange={handleInputChange}
@@ -89,7 +96,6 @@ const TestForm = () => {
                 <Form.Label>Glucose Level</Form.Label>
                 <Form.Control
                   type="number"
-                  placeholder="Enter glucose level"
                   name="glucose"
                   value={formData.glucose}
                   onChange={handleInputChange}
@@ -105,7 +111,6 @@ const TestForm = () => {
                 <Form.Label>Blood Pressure (mmHg)</Form.Label>
                 <Form.Control
                   type="number"
-                  placeholder="Enter blood pressure"
                   name="bloodPressure"
                   value={formData.bloodPressure}
                   onChange={handleInputChange}
@@ -118,7 +123,6 @@ const TestForm = () => {
                 <Form.Label>Skin Thickness</Form.Label>
                 <Form.Control
                   type="number"
-                  placeholder="Enter skin thickness"
                   name="skinThickness"
                   value={formData.skinThickness}
                   onChange={handleInputChange}
@@ -131,7 +135,6 @@ const TestForm = () => {
                 <Form.Label>Insulin Level (mIU/L)</Form.Label>
                 <Form.Control
                   type="number"
-                  placeholder="Enter insulin level"
                   name="insulin"
                   value={formData.insulin}
                   onChange={handleInputChange}
@@ -147,7 +150,6 @@ const TestForm = () => {
                 <Form.Label>BMI</Form.Label>
                 <Form.Control
                   type="number"
-                  placeholder="Enter BMI"
                   name="bmi"
                   value={formData.bmi}
                   onChange={handleInputChange}
@@ -160,7 +162,6 @@ const TestForm = () => {
                 <Form.Label>Diabetes Pedigree Function</Form.Label>
                 <Form.Control
                   type="number"
-                  placeholder="Enter diabetes pedigree function"
                   name="diabetesPedigreeFunction"
                   value={formData.diabetesPedigreeFunction}
                   onChange={handleInputChange}
@@ -173,7 +174,6 @@ const TestForm = () => {
                 <Form.Label>Age</Form.Label>
                 <Form.Control
                   type="number"
-                  placeholder="Enter your age"
                   name="age"
                   value={formData.age}
                   onChange={handleInputChange}

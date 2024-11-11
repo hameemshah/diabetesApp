@@ -11,14 +11,15 @@ const Register = () => {
     const navigate = useNavigate();
 
     const handleRegister = (e) => {
-    
         e.preventDefault();
         if (password !== confirmPassword) {
             alert("Passwords do not match!");
             return;
         }
         console.log("Registering with:", username, email, password);
-        // Add your registration logic here
+
+        navigate('/login');
+         
     };
 
     return (
